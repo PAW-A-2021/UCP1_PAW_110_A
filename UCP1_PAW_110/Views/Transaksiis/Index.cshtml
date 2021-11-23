@@ -1,0 +1,71 @@
+﻿@model IEnumerable<UCP1_PAW_110.Models.Transaksii>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bayar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kembalian)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tanggal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdAdminNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdBarangNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCostumerNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bayar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kembalian)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tanggal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAdminNavigation.IdAdmin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdBarangNavigation.IdBarang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCostumerNavigation.IdCostumer)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdTransaksi">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdTransaksi">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdTransaksi">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
